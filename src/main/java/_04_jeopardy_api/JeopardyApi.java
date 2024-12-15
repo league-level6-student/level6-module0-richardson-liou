@@ -19,8 +19,8 @@ public class JeopardyApi {
 
     private final WebClient webClient;
 
-    private static final String baseUrl = "http://jservice.io/api/clues";
-
+    private static final String baseUrl = "https://the-trivia-api.com/v2/questions";
+    //old: "http://jservice.io/api/clues"
     public JeopardyApi() {
         webClient = WebClient
                 .builder()
@@ -45,9 +45,11 @@ public class JeopardyApi {
                 .block();
         //2
         //Get a random number less than the size of the Clue array
+    	
+    	
     	Random random = new Random();
         int randomIndex = random.nextInt(clues.length);
-
+    	System.out.println(clues);
         return clues[randomIndex];
     	
         //3

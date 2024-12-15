@@ -34,7 +34,7 @@ public class JeopardyRunner {
 
             //8. Use a JOptionPane to display the question.
             //You can set the title of the JOptionPane to the question title.
-        	 String userResponse = JOptionPane.showInputDialog(null, question);
+        	 String userResponse = JOptionPane.showInputDialog(null, question, title, JOptionPane.QUESTION_MESSAGE);
             //9. If they got the question correct, add the value of that question to their score
         	 if (userResponse.equalsIgnoreCase(answer)) {
                  score += i;
