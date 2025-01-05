@@ -21,7 +21,7 @@ does when it is invoked, rather than simply taking a look at what it returns.  W
 unit testing syntax that allows us to verify that specific things occurred when the method was called.
 
 
-Before moving on to the next section, please familiarize yourself with the following code:
+Before moving on tos the next section, please familiarize yourself with the following code:
 src/main/java/_09_intro_to_white_box_testing/models/DeliveryService.java
 src/main/java/_09_intro_to_white_box_testing/models/Order.java
 src/test/java/_09_intro_to_white_box_testing/models/DeliveryServiceTest.java

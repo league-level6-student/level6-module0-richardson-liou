@@ -41,19 +41,26 @@ class DeliveryDriverTest {
     @Test
     void itShouldRefuel() {
         //given
-
+    	 int octaneGrade = 91;
+         boolean expectedRefuelSuccess = true;
         //when
 
+         when(car.fillTank(octaneGrade)).thenReturn(true);
         //then
+         boolean actualRefuelSuccess = deliveryDriver.refuel(octaneGrade);
+         assertEquals(expectedRefuelSuccess, actualRefuelSuccess);
     }
 
     @Test
     void itShouldContactCustomer() {
         //given
-
+    	 String phoneNumber = "123-456-7890";
+         boolean expectedCallSuccess = true;
         //when
-
+         when(cellPhone.call(phoneNumber)).thenReturn(true);
         //then
+         boolean actualCallSuccess = deliveryDriver.contactCustomer(phoneNumber);
+         assertEquals(expectedCallSuccess, actualCallSuccess);
     }
 
 }
