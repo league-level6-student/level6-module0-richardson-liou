@@ -46,7 +46,7 @@ class LeagueOfAmazingAstronautsTest {
     	when(astro.isTrained()).thenReturn(true);
     	underTest.launchRocket(dest);
         //then
-    	assertEquals(underTest.rocketship.rocketsIgnited, true);
+    	assertEquals(underTest.rocketship, true);
     }
 
 
