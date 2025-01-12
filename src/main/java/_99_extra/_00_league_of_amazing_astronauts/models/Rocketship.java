@@ -4,7 +4,7 @@ public class Rocketship {
 
     private double gallonsOfFuel;
 
-    private boolean rocketsIgnited;
+    public boolean rocketsIgnited;
 
     private String destination;
 
