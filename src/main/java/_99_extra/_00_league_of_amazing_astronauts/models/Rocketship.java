@@ -10,7 +10,7 @@ public class Rocketship {
 
     private int milesToDestination;
 
-    private Astronaut astronaut;
+    public Astronaut astronaut;
 
     public Rocketship() {
     }
@@ -21,6 +21,7 @@ public class Rocketship {
 
     public void launch(){
         this.rocketsIgnited = true;
+        System.out.println(rocketsIgnited);
         while(milesToDestination > 0){
             milesToDestination -= 500;
             gallonsOfFuel -= 1;

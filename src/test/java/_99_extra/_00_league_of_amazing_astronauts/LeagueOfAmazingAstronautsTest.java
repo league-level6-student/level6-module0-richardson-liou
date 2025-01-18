@@ -27,6 +27,7 @@ class LeagueOfAmazingAstronautsTest {
     @BeforeEach
     void setUp() {
     	MockitoAnnotations.openMocks(this);
+    	underTest.setRocketship(rocket);
     }
 
     @Test
@@ -46,9 +47,11 @@ class LeagueOfAmazingAstronautsTest {
     	String dest = "Mars";
         //when
     	when(astro.isTrained()).thenReturn(true);
+    	rocket.loadOccupant(astro);
+    	when(rocket.isLoaded()).thenReturn(true);
     	underTest.launchRocket(dest);
         //then
-    	assertEquals(underTest.rocketship.rocketsIgnited, true);
+    	verify(rocket, times(1)).launch();
     }
 
 
@@ -58,7 +61,7 @@ class LeagueOfAmazingAstronautsTest {
     	String s = "somewhere";
     	
         //when
-    	when(astro.isTrained()).thenReturn(true);
+    	when(rocket.isLoaded()).thenReturn(true);
         //then
     	
     	Throwable ex = assertThrows(IllegalArgumentException.class, ()->underTest.launchRocket(s));
@@ -70,11 +73,11 @@ class LeagueOfAmazingAstronautsTest {
         //given
     	String dest = "Mars";
         //when
-    	when(astro.isTrained()).thenReturn(true);
-    	Astronaut rockAstro = underTest.rocketship.getAstronaut();
-    	rockAstro = null;
+    	when(rocket.isLoaded()).thenReturn(false);
+    	
+
         //then
-    	Throwable ex = assertThrows(IllegalStateException.class, ()-> underTest.launchRocket(dest));
+    	Throwable ex = assertThrows(IllegalStateException.class, () -> underTest.launchRocket(dest));
     	assertEquals(ex.getMessage(), "Rocketship is not loaded");
     }
 }
